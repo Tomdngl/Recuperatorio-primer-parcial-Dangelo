@@ -1,13 +1,8 @@
-/*
- * Informes.h
- *
- *  Created on: 21 jun. 2021
- *      Author: Tomas Dangelo
- */
-
 #ifndef INFORMES_H_
 #define INFORMES_H_
 
+int Informes_MostrarTodosCon(eContribuyente array[], int TAM);
+void Informes_MostrarUnoCon(eContribuyente Con);
 
 
-#endif /* INFORMES_H_ */
+#endif
