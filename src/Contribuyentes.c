@@ -70,17 +70,6 @@ int eCon_ObtenerIndexLibre(eContribuyente arrayCon[], int TAM)
 	return rtn;
 }
 
-eContribuyente eCon_CargarDatos(void)
-{
-	eContribuyente aux;
-
-	utn_getNombre(aux.nombre, STR_LEN, "Ingrese el nombre del contribuyente: ", "Nombre invalido.\n", 2);
-	utn_getNombre(aux.apellido, STR_LEN, "Ingrese el apellido del contribuyente: ", "Apellido invalido.\n", 2);
-	utn_getCuil(aux.cuil, 13, "Ingrese el cuil del contribuyente [Solo numeros]: ", "Cuil invalido.\n", 2);
-
-	return aux;
-}
-
 int eCon_BuscarPorID(eContribuyente arrayCon[], int TAM, int idCon)
 {
 	int rtn = -1;
@@ -101,26 +90,37 @@ int eCon_Alta(eContribuyente arrayCon[], int TAM, int* idCon)
 {
 	int rtn = 0;
 	int confirmacion = 0;
+	int flagCarga = 0;
 	eContribuyente auxCon;
 
 	int index = eCon_ObtenerIndexLibre(arrayCon, TAM);
 
 	if (index != -1)
 	{
-		auxCon = eCon_CargarDatos();
+		if(utn_getNombre(auxCon.nombre, STR_LEN, "Ingrese el nombre del contribuyente: ", "Nombre invalido.\n", 2) == 0 &&
+		utn_getNombre(auxCon.apellido, STR_LEN, "Ingrese el apellido del contribuyente: ", "Apellido invalido.\n", 2) == 0 &&
+		utn_getCuil(auxCon.cuil, 13, "Ingrese el cuil del contribuyente [Solo numeros]: ", "Cuil invalido.\n", 2) == 0)
+		{
+			flagCarga = 1;
+		}
 		auxCon.id = *idCon;
 		auxCon.isEmpty= 1;
 
-		if((utn_getNumero(&confirmacion, "¿Esta seguro de realizar el alta?\n[1. Si] [2. No]: ", "Opcion inválida.", 1, 2, 2)) == 0 && confirmacion == 1)
-			{
-				arrayCon[index] = auxCon;
-				rtn = 1;
-				*idCon=*idCon+1;
-			}
+		if(flagCarga == 1)
+		{
+			if((utn_getNumero(&confirmacion, "¿Esta seguro de realizar el alta?\n[1. Si] [2. No]: ", "Opcion inválida.", 1, 2, 2)) == 0 && confirmacion == 1)
+				{
+					arrayCon[index] = auxCon;
+					rtn = 1;
+					*idCon=*idCon+1;
+				}
+		}
 	}
-
+	if(rtn == 1)
+	{
 	printf("\n%4s %10s %10s %10s\n\n", "ID", "NOMBRE", "APELLIDO", "CUIL");
 	Informes_MostrarUnoCon(arrayCon[index]);
+	}
 
 	return rtn;
 }
@@ -164,6 +164,7 @@ int eCon_Modificacion(eContribuyente arrayCon[], int TAM)
 					break;
 				case 4:
 					arrayCon[index] = aux;
+					printf("Se han aplicado las modificaciones\n");
 					rtn = 1;
 					break;
 				case 10:

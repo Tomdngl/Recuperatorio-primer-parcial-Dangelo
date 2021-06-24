@@ -22,7 +22,7 @@ int eCon_Inicializar(eContribuyente arrayCon[], int TAM);
 int eCon_ObtenerIndexLibre(eContribuyente arrayCon[], int TAM);
 int eCon_BuscarPorID(eContribuyente arrayCon[], int TAM, int idCon);
 
-eContribuyente eCon_CargarDatos(void);
+eContribuyente eCon_CargarDatos(int* flagCarga);
 int eCon_Alta(eContribuyente arrayCon[], int TAM, int* id);
 int eCon_Modificacion(eContribuyente arrayCon[], int TAM);
 int eCon_Baja(eContribuyente arrayCon[], int TAM);

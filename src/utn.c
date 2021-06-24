@@ -191,6 +191,9 @@ static int esNombre(char* cadena,int longitud)
 
 	if(cadena != NULL && longitud > 0)
 	{
+		if(strlen(cadena)<=0){
+			rtn=0;
+		}
 		for(i=0 ; cadena[i] != '\0' && i < longitud; i++){
 			if(i==0 && (cadena[i] == ' ')){
 				rtn = 0;
@@ -219,6 +222,9 @@ static int esCuil(char* cadena, int longitud)
 
 	if(cadena != NULL && longitud > 0)
 	{
+		if(strlen(cadena)<=0){
+		rtn=0;
+		}
 		for(i=0 ; cadena[i] != '\0' && i < longitud; i++){
 			if(i==0 && (cadena[i] == ' ')){
 				rtn = 0;
