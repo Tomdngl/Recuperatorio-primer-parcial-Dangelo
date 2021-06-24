@@ -63,7 +63,7 @@ int main(void) {
 			case 4:
 				if(eRec_Alta(arrayRec, arrayCon, REC_TAM, &id_rec, &id_con) == 1)
 				{
-					printf("Alta de recaudación exitosa.\n");
+					printf("\nAlta de recaudación exitosa.\n");
 				}
 				else
 				{
@@ -91,11 +91,16 @@ int main(void) {
 				}
 				break;
 			case 7:
-				//Completar
-				Informes_MostrarTodosCon(arrayCon, CON_TAM);
+				if(Informes_MostrarContribuyentes(arrayCon, arrayRec, CON_TAM) == 0)
+				{
+					printf("No hay contribuyentes para listar.\n");
+				}
 				break;
 			case 8:
-				Informes_MostrarTodosRec(arrayRec, REC_TAM);
+				if(Informes_MostrarRecaudaciones(arrayCon, arrayRec, CON_TAM) == 0)
+				{
+					printf("No hay recaudaciones para listar.\n");
+				}
 				break;
 			case 10:
 				printf("Gracias por usar este programa.");
