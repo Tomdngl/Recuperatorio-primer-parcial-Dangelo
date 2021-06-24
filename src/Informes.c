@@ -104,8 +104,9 @@ int Informes_MostrarContribuyentes(eContribuyente arrayCon[], eRecaudacion array
 			if (arrayCon[i].isEmpty == 1)
 			{
 				printf("----------------------------------------------------------\n");
+				printf("\t");
 				Informes_MostrarUnoCon(arrayCon[i]);
-				printf("\t\t RECAUDACIONES \t\n");
+				printf("\n\t\t RECAUDACIONES \t\n");
 				printf("%4s %10s %10s %15s %15s\n\n", "ID", "MES", "TIPO", "IMPORTE", "ESTADO");
 				for(j = 0; j < TAM; j++)
 				{

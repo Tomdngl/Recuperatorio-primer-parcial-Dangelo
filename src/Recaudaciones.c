@@ -57,12 +57,13 @@ int eRec_BuscarPorID(eRecaudacion arrayRec[], int TAM, int idRec)
 }
 
 
-int eRec_Alta(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int* idRec, int* idCon)
+int eRec_Alta(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int* idRec)
 {
 	int rtn = 0;
 	int confirmacion = 0;
 	int indexRec;
 	int indexCon;
+	int idCon;
 	int flagCarga = 0;
 	int reintentos = 0;
 	eRecaudacion auxRec;
@@ -73,8 +74,8 @@ int eRec_Alta(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int* 
 	{
 		Informes_MostrarTodosCon(arrayCon, TAM);
 		do{
-			utn_getNumero(idCon, "\nIngrese el ID del contribuyente: ", "ID invalido.\n", 1000, 1050, 1);
-			indexCon = eCon_BuscarPorID(arrayCon, TAM, *idCon);
+			utn_getNumero(&idCon, "\nIngrese el ID del contribuyente: ", "ID invalido.\n", 1000, 1050, 1);
+			indexCon = eCon_BuscarPorID(arrayCon, TAM, &idCon);
 			if(indexCon==-1)
 			{
 				printf("No se ha encontrado ese ID");

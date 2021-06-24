@@ -70,14 +70,14 @@ int eCon_ObtenerIndexLibre(eContribuyente arrayCon[], int TAM)
 	return rtn;
 }
 
-int eCon_BuscarPorID(eContribuyente arrayCon[], int TAM, int idCon)
+int eCon_BuscarPorID(eContribuyente arrayCon[], int TAM, int* idCon)
 {
 	int rtn = -1;
 	int i;
 
 	if (arrayCon != NULL && TAM > 0) {
 		for (i = 0; i < TAM; i++) {
-			if (arrayCon[i].id == idCon && arrayCon[i].isEmpty == 1) {
+			if (arrayCon[i].id == *idCon && arrayCon[i].isEmpty == 1) {
 				rtn = i;
 				break;
 			}
@@ -138,7 +138,7 @@ int eCon_Modificacion(eContribuyente arrayCon[], int TAM)
 	Informes_MostrarTodosCon(arrayCon, TAM);
 	do{
 		utn_getNumero(&idCon, "\nIngrese el ID del contribuyente que desea modificar: ", "ID invalido.\n", 1000, 1050, 1);
-		index = eCon_BuscarPorID(arrayCon, TAM, idCon);
+		index = eCon_BuscarPorID(arrayCon, TAM, &idCon);
 		if(index==-1)
 		{
 			printf("No se ha encontrado ese ID");
@@ -189,7 +189,7 @@ int eCon_Baja(eContribuyente arrayCon[], int TAM)
 	Informes_MostrarTodosCon(arrayCon, TAM);
 	do{
 		utn_getNumero(&idCon, "\nIngrese el ID del contribuyente que dar de baja: ", "ID invalido.\n", 1000, 1050, 1);
-		index = eCon_BuscarPorID(arrayCon, TAM, idCon);
+		index = eCon_BuscarPorID(arrayCon, TAM, &idCon);
 		if(index==-1)
 		{
 			printf("No se ha encontrado ese ID");
@@ -201,6 +201,21 @@ int eCon_Baja(eContribuyente arrayCon[], int TAM)
 	{
 		arrayCon[index].isEmpty = -1;
 		rtn = 1;
+	}
+	return rtn;
+}
+
+int eCon_Empty(eContribuyente arrayCon[], int TAM)
+{
+	int rtn = 0;
+	int i;
+	for(i = 0; i < TAM; i++)
+	{
+		if(arrayCon[i].isEmpty==1)
+		{
+			rtn = 1;
+			break;
+		}
 	}
 	return rtn;
 }

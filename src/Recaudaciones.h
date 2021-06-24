@@ -21,7 +21,7 @@ int eRec_ObtenerIndexLibre(eRecaudacion arrayRec[], int TAM);
 int eRec_BuscarPorID(eRecaudacion arrayRec[], int TAM, int idRec);
 
 eRecaudacion eRec_CargarDatos(void);
-int eRec_Alta(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int* idRec, int* idCon);
+int eRec_Alta(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int* idRec);
 int eRec_CambiarEstado(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int estado, char* mensaje);
 
 #endif

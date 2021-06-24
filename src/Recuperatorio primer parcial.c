@@ -40,14 +40,20 @@ int main(void) {
 				}
 				break;
 			case 2:
-				//Revisar que exista un alta o bucle infinito ¿Funcion con_arrayEmpty?
-				if(eCon_Modificacion(arrayCon, CON_TAM) == 1)
+				if(eCon_Empty(arrayCon, CON_TAM) == 1)
 				{
-					printf("\nContribuyente modificado con éxito.\n");
+					if(eCon_Modificacion(arrayCon, CON_TAM) == 1)
+					{
+						printf("\nContribuyente modificado con éxito.\n");
+					}
+					else
+					{
+						printf("\nModificacion cancelada.\n");
+					}
 				}
 				else
 				{
-					printf("\nModificacion cancelada.\n");
+					printf("Aun no ha ingresado ningun contribuyente.\n");
 				}
 				break;
 			case 3:
@@ -61,7 +67,7 @@ int main(void) {
 				}
 				break;
 			case 4:
-				if(eRec_Alta(arrayRec, arrayCon, REC_TAM, &id_rec, &id_con) == 1)
+				if(eRec_Alta(arrayRec, arrayCon, REC_TAM, &id_rec) == 1)
 				{
 					printf("\nAlta de recaudación exitosa.\n");
 				}
