@@ -17,6 +17,7 @@ void contribuyentes_menu(int *opc)
     printf("6. Saldar Recaudación.\n");
     printf("7. Imprimir contribuyentes.\n");
     printf("8. Imprimir Recaudación.\n");
+    printf("9. Informes.\n");
     printf("10. Salir\n\n");
 	utn_getNumero(opc, "Seleccione una opcion: ", "Error, ", 1, 10, 3);
 }
@@ -178,37 +179,6 @@ int eCon_Modificacion(eContribuyente arrayCon[], int TAM)
 	}
 	return rtn;
 }
-
-/*
-int eCon_Baja(eContribuyente arrayCon[], eRecaudacion arrayRec[], int TAM)
-{
-	int rtn = 0;
-	int idCon;
-	int index;
-	int reintentos = 0;
-	int confirmacion;
-
-	Informes_MostrarTodosCon(arrayCon, TAM);
-	do{
-		utn_getNumero(&idCon, "\nIngrese el ID del contribuyente que dar de baja: ", "ID invalido.\n", 1000, 1050, 1);
-		index = eCon_BuscarPorID(arrayCon, TAM, &idCon);
-		if(index==-1)
-		{
-			printf("No se ha encontrado ese ID");
-		}
-		reintentos++;
-	}while(index==-1 && reintentos < 3);
-
-	Informes_MostarRecaudacionesCon(arrayRec, arrayCon[index], TAM);
-
-	if((utn_getNumero(&confirmacion, "¿Esta seguro de realizar la baja?\n[1. Si] [2. No]: ", "Opcion inválida.", 1, 2, 2)) == 0 && confirmacion == 1 && index != -1)
-	{
-		arrayCon[index].isEmpty = -1;
-		rtn = 1;
-	}
-	return rtn;
-}
-*/
 
 int eCon_Empty(eContribuyente arrayCon[], int TAM)
 {

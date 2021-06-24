@@ -14,6 +14,7 @@ eRecaudacion arrayRec[REC_TAM];
 int main(void) {
 	setbuf(stdout, NULL);
 	int opc;
+	int opcinfo;
 	int id_con = 1000;
 	int id_rec = 100;
 
@@ -107,6 +108,25 @@ int main(void) {
 				if(Informes_MostrarRecaudaciones(arrayCon, arrayRec, CON_TAM) == 0)
 				{
 					printf("No hay recaudaciones para listar.\n");
+				}
+				break;
+			case 9:
+				Informes_menu(&opcinfo);
+				switch (opcinfo) {
+					case 1:
+						Informes_opc1(arrayRec, arrayCon, CON_TAM, REC_TAM);
+						break;
+					case 2:
+						Informes_opc2(arrayRec, REC_TAM);
+						break;
+					case 3:
+						//Informes_opc3();
+						break;
+					case 4:
+						if(Informes_opc4(arrayRec, arrayCon, CON_TAM, REC_TAM)== 0)
+						{
+							printf("No hay contribuyentes con pagos en febrero.");
+						}
 				}
 				break;
 			case 10:
