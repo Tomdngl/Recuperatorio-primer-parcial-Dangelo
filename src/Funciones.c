@@ -32,8 +32,36 @@ int eCon_Baja(eContribuyente arrayCon[], eRecaudacion arrayRec[], int TAM)
 	if((utn_getNumero(&confirmacion, "¿Esta seguro de realizar la baja?\n[1. Si] [2. No]: ", "Opcion inválida.", 1, 2, 2)) == 0 && confirmacion == 1 && index != -1)
 	{
 		arrayCon[index].isEmpty = -1;
+		eRec_Baja(arrayRec, TAM, arrayCon);
 		rtn = 1;
 	}
+	return rtn;
+}
+
+int eRec_Baja(eRecaudacion arrayRec[], int TAM, eContribuyente arrayCon[])
+{
+	int rtn = 0;
+	int i;
+	int j;
+
+	if (arrayRec != NULL && TAM > 0)
+	{
+		for (i = 0; i < TAM; i++)
+		{
+			if (arrayRec[i].isEmpty == 1)
+			{
+				for(j = 0 ; j < TAM; j++)
+					{
+						if(arrayRec[i].idCon == arrayCon[j].id)
+						{
+							arrayRec[i].isEmpty = 0;
+						}
+					}
+				rtn = 1;
+			}
+		}
+	}
+
 	return rtn;
 }
 

@@ -3,6 +3,7 @@
 
 int eCon_Baja(eContribuyente arrayCon[], eRecaudacion arrayRec[],int TAM);
 int eRec_Alta(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int* idRec);
+int eRec_Baja(eRecaudacion array[], int TAM, eContribuyente Con[]);
 int eRec_CambiarEstado(eRecaudacion arrayRec[], eContribuyente arrayCon[], int TAM, int estado, char* mensaje);
 
 int Informes_MostrarContribuyentes(eContribuyente arrayCon[], eRecaudacion arrayRec[], int TAM);
