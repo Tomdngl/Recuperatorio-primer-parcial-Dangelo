@@ -10,7 +10,4 @@ void Informes_MostrarUnoCon(eContribuyente Con);
 int Informes_MostrarTodosRec(eRecaudacion array[], int TAM);
 void Informes_MostrarUnoRec(eRecaudacion Con);
 
-int Informes_MostrarContribuyentes(eContribuyente arrayCon[], eRecaudacion arrayRec[], int TAM);
-int Informes_MostrarRecaudaciones(eContribuyente arrayCon[], eRecaudacion arrayRec[], int TAM);
-
 #endif

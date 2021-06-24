@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "utn.h"
-
 #ifndef CONTRIBUYENTES_H_
 #define CONTRIBUYENTES_H_
 
@@ -26,6 +21,6 @@ int eCon_Empty(eContribuyente arrayCon[], int TAM);
 eContribuyente eCon_CargarDatos(int* flagCarga);
 int eCon_Alta(eContribuyente arrayCon[], int TAM, int* id);
 int eCon_Modificacion(eContribuyente arrayCon[], int TAM);
-int eCon_Baja(eContribuyente arrayCon[], int TAM);
+//int eCon_Baja(eContribuyente arrayCon[], eRecaudacion arrayRec[],int TAM);
 
 #endif

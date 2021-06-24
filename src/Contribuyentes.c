@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Contribuyentes.h"
-#include "Informes.h"
 #include "utn.h"
+#include "Informes.h"
 
 void contribuyentes_menu(int *opc)
 {
@@ -178,7 +179,8 @@ int eCon_Modificacion(eContribuyente arrayCon[], int TAM)
 	return rtn;
 }
 
-int eCon_Baja(eContribuyente arrayCon[], int TAM)
+/*
+int eCon_Baja(eContribuyente arrayCon[], eRecaudacion arrayRec[], int TAM)
 {
 	int rtn = 0;
 	int idCon;
@@ -197,6 +199,8 @@ int eCon_Baja(eContribuyente arrayCon[], int TAM)
 		reintentos++;
 	}while(index==-1 && reintentos < 3);
 
+	Informes_MostarRecaudacionesCon(arrayRec, arrayCon[index], TAM);
+
 	if((utn_getNumero(&confirmacion, "¿Esta seguro de realizar la baja?\n[1. Si] [2. No]: ", "Opcion inválida.", 1, 2, 2)) == 0 && confirmacion == 1 && index != -1)
 	{
 		arrayCon[index].isEmpty = -1;
@@ -204,6 +208,7 @@ int eCon_Baja(eContribuyente arrayCon[], int TAM)
 	}
 	return rtn;
 }
+*/
 
 int eCon_Empty(eContribuyente arrayCon[], int TAM)
 {

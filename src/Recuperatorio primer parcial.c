@@ -3,6 +3,7 @@
 #include "Contribuyentes.h"
 #include "Recaudaciones.h"
 #include "Informes.h"
+#include "Funciones.h"
 
 #define CON_TAM 50
 #define REC_TAM 50
@@ -57,7 +58,7 @@ int main(void) {
 				}
 				break;
 			case 3:
-				if(eCon_Baja(arrayCon, CON_TAM) == 1)
+				if(eCon_Baja(arrayCon, arrayRec, CON_TAM) == 1)
 				{
 					printf("\nBaja de contribuyente exitosa..\n");
 				}
